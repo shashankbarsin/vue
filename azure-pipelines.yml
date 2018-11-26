@@ -13,7 +13,7 @@ jobs:
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: drop
-      targetPath: $(Build.ArtifactStagingDirectory)
+      targetPath: $(System.DefaultWorkingDirectory)
 - job: List
   dependsOn: Install
   container: vue_container
