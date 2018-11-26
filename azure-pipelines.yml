@@ -6,4 +6,5 @@ resources:
 steps:
 - script: |
     npm install
+    ls
   displayName: 'npm install'
