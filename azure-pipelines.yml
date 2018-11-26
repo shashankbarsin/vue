@@ -4,10 +4,24 @@ resources:
     image: vuejs/ci
 
 jobs:
-- job:
+- job: Install
   container: vue_container
   steps:
   - script: |
       npm install
-      ls
     displayName: 'npm install'
+  - task: PublishPipelineArtifact@0
+    inputs:
+      artifactName: drop
+      targetPath: $(Build.ArtifactStagingDirectory)
+- job: List
+  dependsOn: Install
+  container: vue_container
+  steps:
+  - task: DownloadPipelineArtifact@0
+    inputs:
+      artifactName: drop
+      targetPath: $(System.DefaultWorkingDirectory)
+  - script: |
+      ls
+    
