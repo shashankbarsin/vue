@@ -1,0 +1,9 @@
+resources:
+  containers:
+  - container: vue_container
+    image: vuejs/ci
+
+steps:
+- script: |
+    npm install
+  displayName: 'npm install'
