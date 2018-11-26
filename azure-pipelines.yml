@@ -3,8 +3,11 @@ resources:
   - container: vue_container
     image: vuejs/ci
 
-steps:
-- script: |
-    npm install
-    ls
-  displayName: 'npm install'
+jobs:
+- job:
+  container: vue_container
+  steps:
+  - script: |
+      npm install
+      ls
+    displayName: 'npm install'
