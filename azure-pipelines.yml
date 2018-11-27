@@ -37,7 +37,7 @@ jobs:
       artifactName: drop
       targetPath: $(System.DefaultWorkingDirectory)
   - script: |
-  npm run test:e2e -- --env phantomjs
+      npm run test:e2e -- --env phantomjs
       
 - job: ssr-weex
   dependsOn: Install
