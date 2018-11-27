@@ -13,7 +13,7 @@ jobs:
   - task: PublishPipelineArtifact@0
     inputs:
       artifactName: drop
-      targetPath: $(System.DefaultWorkingDirectory)
+      targetPath: $(System.DefaultWorkingDirectory)/node_modules
       
 - job: Lint
   dependsOn: Install
