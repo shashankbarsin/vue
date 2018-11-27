@@ -19,36 +19,13 @@ jobs:
   dependsOn: Install
   container: vue_container
   steps:
+  - script: |
+      ls
   - task: DownloadPipelineArtifact@0
     inputs:
       artifactName: drop
       targetPath: $(System.DefaultWorkingDirectory)
   - script: |
-      npm run lint
-      npm run flow
-      npm run test:types
-      
-- job: endToEnd
-  dependsOn: Install
-  container: vue_container
-  steps:
-  - task: DownloadPipelineArtifact@0
-    inputs:
-      artifactName: drop
-      targetPath: $(System.DefaultWorkingDirectory)
-  - script: |
-      npm run test:e2e -- --env phantomjs
-      
-- job: ssr_weex
-  dependsOn: Install
-  container: vue_container
-  steps:
-  - task: DownloadPipelineArtifact@0
-    inputs:
-      artifactName: drop
-      targetPath: $(System.DefaultWorkingDirectory)
-  - script: |
-      npm run test:ssr
-      npm run test:weex
+      ls
       
     
