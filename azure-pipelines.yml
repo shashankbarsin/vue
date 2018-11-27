@@ -28,7 +28,7 @@ jobs:
       npm run flow
       npm run test:types
       
-- job: Test e2e
+- job: endToEnd
   dependsOn: Install
   container: vue_container
   steps:
@@ -39,7 +39,7 @@ jobs:
   - script: |
       npm run test:e2e -- --env phantomjs
       
-- job: ssr-weex
+- job: ssr_weex
   dependsOn: Install
   container: vue_container
   steps:
